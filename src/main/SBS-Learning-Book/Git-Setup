@@ -422,4 +422,332 @@ OR
 🔥 Create second microservice (content-service)
 
 Now things get really interesting 😄
------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
+
+HOw to change the repo name here ShreeBenakaSpace to  ShreeBenakaSpace-Microservices
+
+Nice 👌 you’ve already updated your username — looks clean and professional now 🔥
+
+Now let’s rename your repo:
+
+👉 ShreeBenakaSpace → ShreeBenakaSpace-Microservices
+
+✅ How to rename repository in GitHub
+🔹 Step 1
+
+Open your repo:
+👉 Click ShreeBenakaSpace
+
+🔹 Step 2
+
+Go to:
+
+Settings
+
+(Top menu bar of repo)
+
+🔹 Step 3
+
+In General section, you’ll see:
+
+Repository name
+🔹 Step 4
+
+Change:
+
+ShreeBenakaSpace
+
+👉 to:
+
+ShreeBenakaSpace-Microservices
+🔹 Step 5
+
+Click:
+
+Rename
+✅ Done 🎉
+⚠️ VERY IMPORTANT (don’t skip)
+
+Since you already connected this repo in IntelliJ, you MUST update remote URL.
+
+🔧 Update Git remote in your microservice project
+
+Go to terminal:
+
+git remote -v
+
+You’ll see old URL.
+
+Now update:
+
+git remote set-url origin https://github.com/DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git
+✅ Verify
+git remote -v
+
+👉 Should show new repo name
+
+💡 Good news
+
+GitHub automatically redirects old repo URL → new one
+So nothing breaks, but updating is best practice 👍
+
+💬 Small suggestion (important for portfolio)
+
+After renaming:
+
+👉 Add description like:
+
+Microservices architecture using Spring Boot - User Service, Content Service, API Gateway
+
+👉 Add README later (I’ll help you)
+
+🚀 Next step
+
+Tell me:
+
+👉 “Repo renamed”
+
+Then we’ll:
+🔥 Connect DB to user-service
+OR
+🔥 Create second microservice (content-service)
+
+Now things get really interesting 😄
+
+PS C:\ShreeBenakaApplication\ShreeBenakaSpace-MicroServices\ShreeBenakaSpace-MicroServices> git remote add origin https://github.com/DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git
+PS C:\ShreeBenakaApplication\ShreeBenakaSpace-MicroServices\ShreeBenakaSpace-MicroServices> git branch -M main
+PS C:\ShreeBenakaApplication\ShreeBenakaSpace-MicroServices\ShreeBenakaSpace-MicroServices> git push -u origin main
+remote: Permission to DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git denied to amdeepasanathshashwath.
+fatal: unable to access 'https://github.com/DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git/': The requested URL returned error: 403
+
+Ahh okay — this is a very common GitHub auth issue 👍
+And the error actually tells us exactly what’s wrong:
+
+Permission denied to amdeepasanathshashwath
+🧠 What’s happening
+
+You are trying to push to:
+
+DeepaShashwathSanath/ShreeBenakaSpace-Microservices
+
+But Git is using a different account:
+
+amdeepasanathshashwath ❌
+
+👉 So GitHub is blocking you (403 error)
+
+❗ Root cause
+
+👉 Your local Git credentials are still linked to old username
+
+✅ FIX (clean and simple)
+🔹 Step 1: Remove old credentials
+
+On Windows:
+
+Search:
+Credential Manager
+Open:
+👉 Windows Credentials
+Find entries related to:
+git:https://github.com
+Remove them ❌
+🔹 Step 2: Try push again
+git push -u origin main
+
+👉 Now it will ask:
+
+Username
+Password
+🔹 Step 3: Use correct credentials
+
+👉 Username:
+
+DeepaShashwathSanath
+
+👉 Password:
+❌ NOT your GitHub password
+✅ Use Personal Access Token (PAT)
+
+🔑 If you don’t have PAT
+
+Create one in GitHub:
+
+Steps:
+Settings
+Developer Settings
+Personal Access Tokens
+Tokens (classic)
+Generate new token
+
+Select:
+
+repo ✅
+
+Copy token → use as password
+
+⚡ Faster alternative (recommended)
+
+Instead of HTTPS, use SSH (no password again and again)
+
+But for now:
+👉 Fix with PAT first
+
+💡 Quick check (important)
+
+Run:
+
+git config user.name
+git config user.email
+
+Make sure it matches your new account.
+
+💬 Don’t worry
+
+This is not a coding issue —
+this is just GitHub identity mismatch
+
+Even experienced devs hit this after changing usernames.
+
+🚀 Your next step
+
+Do:
+
+Remove credentials
+Push again
+Login with correct account
+
+Then tell me:
+
+👉 “Push successful”
+
+Next we’ll:
+🔥 Add DB to user-service OR create content-service (your choice)
+
+Is not possible to make the 2 creditial 1 for github-Monoithic and one for - microservice s github in credential manager . COs I may need to  swithch every now and then
+
+Ahh this is a very smart question 👀 — you’re thinking like a real developer now.
+
+Short answer:
+
+👉 Yes, it is possible
+BUT ❗ not clean with HTTPS + Credential Manager
+
+👉 The correct professional way = use SSH keys (best solution)
+
+🧠 Why your current approach is painful
+
+With HTTPS:
+
+Git stores one credential per domain (github.com) ❌
+So it keeps switching / conflicting ❌
+
+That’s why you’re stuck.
+
+✅ BEST SOLUTION → Use SSH for multiple GitHub accounts
+
+👉 This lets you use:
+
+Monolith → Account A
+Microservices → Account B
+
+without conflicts
+
+🚀 Step-by-step (don’t worry, I’ll keep it simple)
+🔹 Step 1: Generate SSH keys (2 keys)
+
+Open terminal:
+
+👉 For Monolith account
+ssh-keygen -t ed25519 -C "monolith-email@example.com"
+
+Save as:
+
+id_ed25519_monolith
+👉 For Microservices account
+ssh-keygen -t ed25519 -C "microservices-email@example.com"
+
+Save as:
+
+id_ed25519_micro
+🔹 Step 2: Add keys to GitHub
+
+Go to GitHub
+
+For each account:
+Settings → SSH and GPG keys
+Click New SSH key
+Paste key:
+cat ~/.ssh/id_ed25519_micro.pub
+🔹 Step 3: Configure SSH config file
+
+Open:
+
+~/.ssh/config
+
+Add:
+
+# Monolith account
+Host github-monolith
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_monolith
+
+# Microservices account
+Host github-micro
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_micro
+🔹 Step 4: Change remote URL
+👉 For microservices project
+git remote set-url origin git@github-micro:DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git
+👉 For monolith project
+git remote set-url origin git@github-monolith:<monolith-username>/<repo>.git
+🎯 Result
+
+Now:
+
+Project	GitHub Account
+Monolith	Account A ✅
+Microservices	Account B ✅
+
+👉 No switching
+👉 No credential issues
+👉 No 403 errors
+
+💬 Honest advice (important)
+
+Right now you are:
+
+Managing 2 architectures
+Managing 2 repos
+Managing 2 accounts
+
+👉 This is advanced workflow
+
+You’re doing really well — just need right setup.
+
+🔥 If you want simpler (temporary option)
+
+👉 Use same GitHub account for both repos
+
+Much easier while learning.
+
+🚀 My recommendation for YOU
+
+Since you're learning + building:
+
+👉 Use ONE GitHub account for everything
+
+Later → move to multi-account setup
+
+👉 Tell me what you prefer
+
+Option 1:
+👉 “I’ll use one GitHub account”
+
+Option 2:
+👉 “Help me setup SSH step-by-step”
+
+I’ll guide you accordingly 💪

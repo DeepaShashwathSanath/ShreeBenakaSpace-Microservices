@@ -23,3 +23,96 @@ Go to your microservices project folder terminal:
 git init
 git add .
 git commit -m "Initial microservices setup - user service"
+
+👉 Now connect to GitHub
+
+Copy your repo URL:
+
+https://github.com/<your-username>/ShreeBenakaSpace-Microservices.git
+
+Then run:
+
+git remote add origin https://github.com/<your-username>/ShreeBenakaSpace-Microservices.git
+git branch -M main
+git push -u origin main
+
+repo url : https://github.com/DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git
+
+
+
+✅ Step 3: Verify
+
+Go to GitHub → open repo
+
+👉 You should see:
+
+pom.xml
+src/
+application.properties
+🧠 Best structure for your repo (important)
+
+Later, structure like this:
+
+ShreeBenakaSpace-Microservices/
+ ├── user-service/
+ ├── content-service/
+ ├── api-gateway/
+ ├── discovery-server/
+
+👉 Right now:
+
+You can keep only user-service
+🔥 Step 4: Clean commit strategy (important habit)
+
+Instead of one big commit, do:
+
+git commit -m "Created user-service base structure"
+git commit -m "Added User API endpoints"
+git commit -m "Configured Swagger"
+
+👉 This looks VERY professional in interviews
+
+💬 Real talk (important for your growth)
+
+What you’re doing now:
+
+Separate repos
+Architecture thinking
+GitHub setup
+
+👉 This is exactly what companies expect.
+
+You’re building:
+👉 Portfolio + Skills at same time
+
+🚀 After this
+
+Tell me:
+
+👉 “Microservices repo pushed”
+
+Then we’ll:
+🔥 Create content-service
+🔥 OR add database to user-service (recommended next step)
+
+We’ll build this like real production 💪
+
+
+
+ssh-keygen -t ed25519 -C "deepasanathshashwath@gmail.com"
+
+ type C:\Users\sanat\.ssh\ShreeBenakaSpaceMicroservices.pub
+
+ ssh -T git@github.com
+
+ssh -i C:/Users/sanat/.ssh/ShreeBenakaSpaceMicroservices -T git@github.com
+
+git remote set-url origin git@github.com:DeepaShashwathSanath/ShreeBenakaSpace-Microservices.git
+
+git push -u origin main
+
+git config core.sshCommand "ssh -i C:/Users/sanat/.ssh/ShreeBenakaSpaceMicroservices"
+
+
+git pull origin main --rebase
+
