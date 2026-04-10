@@ -1720,3 +1720,26 @@ sshkeys/
 *.pem
 *.key
 
+
+PS C:\ShreeBenakaApplication\ShreeBenakaSpace-MicroServices\ShreeBenakaSpace-MicroServices> git add .
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+PS C:\ShreeBenakaApplication\ShreeBenakaSpace-MicroServices\ShreeBenakaSpace-MicroServices> git commit -m "Initial microservices setup"
+[main fe4cd3c] Initial microservices setup
+ 5 files changed, 2151 insertions(+), 3 deletions(-)
+ create mode 100644 src/main/SBS-Learning-Book/GIthub-Error-2github
+ create mode 100644 sshkeys/ShreeBenakaSpaceMicroservices.pub
+
+
+git push -u origin main --force
+
+
+===================================================================================================================
+
+
+
+
+
+
+
+
+

@@ -116,3 +116,81 @@ git config core.sshCommand "ssh -i C:/Users/sanat/.ssh/ShreeBenakaSpaceMicroserv
 
 git pull origin main --rebase
 
+======================================07-04-2026=====================================
+NOw I need to push some files and some want to skip how do I do in intellij
+
+Got it — you want to push only some files and skip others in IntelliJ IDEA 👍
+There are a few clean ways to do this depending on what you want.
+
+✅ ✅ Method 1: Use IntelliJ Commit Window (Best way)
+Steps:
+Open Commit panel
+Shortcut: Ctrl + K (Windows)
+You’ll see a list of changed files
+✔ Select ONLY the files you want to push
+❌ Uncheck the files you want to skip
+Click:
+Commit (or)
+Commit and Push
+
+👉 Only selected files will go to Git
+
+✅ Method 2: Add specific files manually (Git way)
+
+In terminal inside IntelliJ:
+
+git add file1.java
+git add file2.java
+
+Then:
+
+git commit -m "Added selected files"
+git push
+
+👉 Files you didn’t add will be ignored
+
+✅ Method 3: Permanently ignore files (.gitignore)
+
+If there are files you never want to push (like logs, build files):
+
+Create or edit .gitignore
+Add entries like:
+node_modules/
+*.log
+target/
+.idea/
+
+👉 IntelliJ will automatically stop tracking them
+
+⚠️ Important cases
+🔴 File already committed once?
+
+Even if you ignore it now, Git still tracks it.
+
+Fix:
+
+git rm --cached filename
+
+Then commit again.
+
+💡 Pro Tip (IntelliJ feature)
+
+Right-click file →
+👉 Git → Add to .gitignore
+
+Super easy 👍
+
+🚀 Recommended workflow for you
+
+Since you're building a project:
+
+✔ Commit only:
+source code (src/)
+config files
+❌ Ignore:
+target/
+.idea/
+logs
+
+If you want, tell me your project type (Spring Boot I assume 👀),
+I’ll generate a perfect .gitignore for you.
